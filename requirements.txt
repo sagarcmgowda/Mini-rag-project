@@ -1,0 +1,7 @@
+Flask
+numpy
+scipy
+faiss-cpu
+tqdm
+sentence-transformers
+rank-bm25
