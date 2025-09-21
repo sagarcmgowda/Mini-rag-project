@@ -47,7 +47,7 @@ Follow these steps to set up the project on your local machine.
 
 ---
 
-## Example API Requests
+## Example:
 
 Here are two example requests to test the API for both search modes.
 
@@ -57,3 +57,25 @@ This command uses cosine similarity to find the most relevant chunks.
 
 ```bash
 curl -X POST [http://127.0.0.1:5000/ask](http://127.0.0.1:5000/ask) -H "Content-Type: application/json" -d "{\"q\": \"What is the Machinery Regulation?\", \"k\": 3, \"mode\": \"baseline\"}"
+
+### Reranker Search Example
+
+This command uses a hybrid approach (cosine similarity + BM25 keyword search) to rerank the results for better accuracy.
+
+```bash
+curl -X POST [http://127.0.0.1:5000/ask](http://127.0.0.1:5000/ask) -H "Content-Type: application/json" -d "{\"q\": \"How to protect workers from amputations?\", \"k\": 5, \"mode\": \"reranker\"}"
+
+### Results and Findings
+The following table summarizes the results for the 8 questions, comparing the performance of the baseline and reranker modes.
+| Question | Baseline Result | Reranker Result | Better Performer |
+|----------|----------------|----------------|----------------|
+| Q1: What is risk assessment? | [The answer or "Abstain"] | [The answer or "Abstain"] | [Baseline/Reranker] |
+| Q2: How to protect workers from amputations? | [The answer or "Abstain"] | [The answer or "Abstain"] | [Baseline/Reranker] |
+| Q3: [Question 3] | [The answer or "Abstain"] | [The answer or "Abstain"] | [Baseline/Reranker] |
+| Q4: [Question 4] | [The answer or "Abstain"] | [The answer or "Abstain"] | [Baseline/Reranker] |
+| Q5: [Question 5] | [The answer or "Abstain"] | [The answer or "Abstain"] | [Baseline/Reranker] |
+| Q6: [Question 6] | [The answer or "Abstain"] | [The answer or "Abstain"] | [Baseline/Reranker] |
+| Q7: [Question 7] | [The answer or "Abstain"] | [The answer or "Abstain"] | [Baseline/Reranker] |
+| Q8: [Question 8] | [The answer or "Abstain"] | [The answer or "Abstain"] | [Baseline/Reranker] |
+
+
