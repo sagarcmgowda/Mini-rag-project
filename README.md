@@ -57,6 +57,7 @@ This command uses cosine similarity to find the most relevant chunks.
 
 ```bash
 curl -X POST [http://127.0.0.1:5000/ask](http://127.0.0.1:5000/ask) -H "Content-Type: application/json" -d "{\"q\": \"What is the Machinery Regulation?\", \"k\": 3, \"mode\": \"baseline\"}"
+```
 
 ### Reranker Search Example
 
@@ -64,6 +65,7 @@ This command uses a hybrid approach (cosine similarity + BM25 keyword search) to
 
 ```bash
 curl -X POST [http://127.0.0.1:5000/ask](http://127.0.0.1:5000/ask) -H "Content-Type: application/json" -d "{\"q\": \"How to protect workers from amputations?\", \"k\": 5, \"mode\": \"reranker\"}"
+```
 
 ### Results and Findings
 The following table summarizes the results for the 8 questions, comparing the performance of the baseline and reranker modes.
